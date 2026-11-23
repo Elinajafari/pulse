@@ -1,0 +1,5 @@
+service: orders-api
+status: ok
+all systems operational
+latency p95: 120 ms
+last incident: none this month

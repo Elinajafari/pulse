@@ -1,0 +1,4 @@
+service: orders-api
+status: maintenance
+the orders service is unavailable while we migrate the database
+expected back: unknown
