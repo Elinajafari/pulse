@@ -1,0 +1,312 @@
+{
+  "network": "studionet",
+  "chain_id": 61999,
+  "contract": "0x7477Ac71C83987328De285BAa868C37c1EC6b0dc",
+  "explorer": "https://explorer-studio.genlayer.com/address/0x7477Ac71C83987328De285BAa868C37c1EC6b0dc",
+  "source_sha256": "16a2a47c4df2b5071b9967e59c950d852e5038a02a9413e941a2470be97d443e",
+  "constructor": {},
+  "deployer": "0x52F7cD0842c98eb4990CE3752Dce9D70A058f6a0",
+  "steps": [
+    {
+      "step": "deploy",
+      "method": "deploy",
+      "from": "0x52F7cD0842c98eb4990CE3752Dce9D70A058f6a0",
+      "tx": "0x8310c7bc10d0393485702e6d7f24d4c0de34aef795a2379bc0aac4aa3e5d7658",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": "",
+      "address": "0x7477Ac71C83987328De285BAa868C37c1EC6b0dc"
+    },
+    {
+      "step": "bond 0 opened: a healthy address, 2 failed probes in a row are a breach",
+      "method": "open",
+      "from": "0x694112B65f552f38BFafAb9347D4dCEdd86DdDCe",
+      "tx": "0xa0c82d0475a1eed4b8f07f56bfb4f71bd473f73ed1c9b4475522c261e9ef647d",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "bond 1 opened: an address that answers 404",
+      "method": "open",
+      "from": "0x694112B65f552f38BFafAb9347D4dCEdd86DdDCe",
+      "tx": "0x90fee80c82caef9fc92491f2cce2b50edce9018e47af03932aaa82f8ba0e4f46",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "bond 2 opened: an address that answers 200 and says it is down",
+      "method": "open",
+      "from": "0x694112B65f552f38BFafAb9347D4dCEdd86DdDCe",
+      "tx": "0x25af2063edd3ed704f71ef92d4c556081377a87373a5f65a87f208aec5710579",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "bond 0, probe 1: the page answers 200 and reads healthy: up",
+      "method": "probe",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0xe2538fb738e54ad44885367eebde1a9a554a928271edb062cea9e38935853a53",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "bond 0: a probe sooner than the gap: refused",
+      "method": "probe",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0x1cc38e435e81e9c45055118c318cef27d71d41ca9a62f4f93c5997193baeb3a9",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the next probe is allowed at 2026-11-23T22:39:38Z"
+    },
+    {
+      "step": "bond 1, probe 1: the address answers 404: down, strike 1",
+      "method": "probe",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0xcfb2456df1a66102e46ba047a5f9edbdb3d72a1c928dd7ae49a45dd73e039791",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "bond 2, probe 1: 200 but the page says maintenance: down, strike 1",
+      "method": "probe",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0x3ba2771874c0405902d6763e8145c6bb244ab93fc352531d63e4ca537b19a1f1",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "bond 0, probe 2: healthy again: up",
+      "method": "probe",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0x7f94a643cc9c2328a859f3948d51e1c5680c49ed37b5d31267d8d5ab69de60ec",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "bond 1, probe 2: 404 again: strike 2, the bond is breached and the stake is paid out",
+      "method": "probe",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0x013868bcfb1d82b8ea67b613379a82bfa7d614918827c07cd137e730b84b0a0d",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a probe on a breached bond: refused",
+      "method": "probe",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0x9aea3084d80a1bc4c1e2f10f6d0860412585e8c6a7be7982c55fd513dcb5b840",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this bond is breached; only an open one is probed"
+    },
+    {
+      "step": "a settlement while bond 0's term is still running: refused",
+      "method": "settle",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0x608179d2276259002c75a2c65413a8028d6718cb1ab2fc0ab049de2da6b3ce28",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] the term runs until 2026-11-23T22:44:58Z"
+    },
+    {
+      "step": "bond 2 settled: only one failure, never a breach: the stake returns to the provider",
+      "method": "settle",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0xa5aefbc5680e532a6eec4962c73dec20bf99fa69e138edc950a91dd2154f1768",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "bond 0 settled: never breached: the stake returns to the provider",
+      "method": "settle",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0x78682effd2d188b2d2daedcb0d0f50012ec04ff13d015a24a1b0586bb858ee9f",
+      "status": "ACCEPTED",
+      "ok": true,
+      "refusal": ""
+    },
+    {
+      "step": "a settlement of a breached bond: refused",
+      "method": "settle",
+      "from": "0x55071D1603549D356A65DA90af2c665Acb226781",
+      "tx": "0xa9fb81a4922cfe3d67ebaf1be6388ef1543ec421f17e08ddfc54a0e49f3f51f4",
+      "status": "ACCEPTED",
+      "ok": false,
+      "refusal": "[EXPECTED] this bond is breached; nothing to settle"
+    }
+  ],
+  "demo": {
+    "addresses": {
+      "healthy": "https://raw.githubusercontent.com/Elinajafari/pulse/main/demo/healthy.txt",
+      "gone": "https://raw.githubusercontent.com/Elinajafari/pulse/main/demo/gone.txt",
+      "degraded": "https://raw.githubusercontent.com/Elinajafari/pulse/main/demo/degraded.txt"
+    },
+    "stake_wei": "50000000000000000",
+    "bonds": [
+      {
+        "beneficiary": "0xBf516B16A8F96444E6a7A4778A79973ede5B7286",
+        "deadline": "2026-11-23T22:44:58Z",
+        "gap": 60,
+        "opened_at": "2026-11-23T22:37:58Z",
+        "probes": 2,
+        "provider": "0x694112B65f552f38BFafAb9347D4dCEdd86DdDCe",
+        "settled_at": "2026-11-23T22:45:14Z",
+        "stake": "50000000000000000",
+        "status": "kept",
+        "strikes": 0,
+        "strikes_needed": 2,
+        "title": "Orders API, healthy",
+        "url": "https://raw.githubusercontent.com/Elinajafari/pulse/main/demo/healthy.txt",
+        "worst_run": 0
+      },
+      {
+        "beneficiary": "0xBf516B16A8F96444E6a7A4778A79973ede5B7286",
+        "deadline": "2026-11-23T22:45:11Z",
+        "gap": 60,
+        "opened_at": "2026-11-23T22:38:11Z",
+        "probes": 2,
+        "provider": "0x694112B65f552f38BFafAb9347D4dCEdd86DdDCe",
+        "settled_at": "2026-11-23T22:41:08Z",
+        "stake": "50000000000000000",
+        "status": "breached",
+        "strikes": 2,
+        "strikes_needed": 2,
+        "title": "Orders API, address gone",
+        "url": "https://raw.githubusercontent.com/Elinajafari/pulse/main/demo/gone.txt",
+        "worst_run": 2
+      },
+      {
+        "beneficiary": "0xBf516B16A8F96444E6a7A4778A79973ede5B7286",
+        "deadline": "2026-11-23T22:43:24Z",
+        "gap": 60,
+        "opened_at": "2026-11-23T22:38:24Z",
+        "probes": 1,
+        "provider": "0x694112B65f552f38BFafAb9347D4dCEdd86DdDCe",
+        "settled_at": "2026-11-23T22:43:40Z",
+        "stake": "50000000000000000",
+        "status": "kept",
+        "strikes": 1,
+        "strikes_needed": 2,
+        "title": "Orders API, in maintenance",
+        "url": "https://raw.githubusercontent.com/Elinajafari/pulse/main/demo/degraded.txt",
+        "worst_run": 1
+      }
+    ],
+    "probes": [
+      {
+        "probes": [
+          {
+            "at": "2026-11-23T22:38:38Z",
+            "bond": 0,
+            "by": "0x55071D1603549D356A65DA90af2c665Acb226781",
+            "class": "2xx",
+            "id": 0,
+            "reason_is_leader_supplied": true,
+            "state": "up",
+            "strikes_after": 0,
+            "why": "The page reports status ok, all systems operational, p95 latency of 120 ms, and no incidents this month. Nothing indicates degradation, down"
+          },
+          {
+            "at": "2026-11-23T22:40:48Z",
+            "bond": 0,
+            "by": "0x55071D1603549D356A65DA90af2c665Acb226781",
+            "class": "2xx",
+            "id": 3,
+            "reason_is_leader_supplied": true,
+            "state": "up",
+            "strikes_after": 0,
+            "why": "The fetched page explicitly states the status is ok and all systems operational."
+          }
+        ],
+        "title": "Orders API, healthy"
+      },
+      {
+        "probes": [
+          {
+            "at": "2026-11-23T22:39:18Z",
+            "bond": 1,
+            "by": "0x55071D1603549D356A65DA90af2c665Acb226781",
+            "class": "4xx",
+            "id": 1,
+            "reason_is_leader_supplied": true,
+            "state": "down",
+            "strikes_after": 1,
+            "why": "the address answered 4xx"
+          },
+          {
+            "at": "2026-11-23T22:41:08Z",
+            "bond": 1,
+            "by": "0x55071D1603549D356A65DA90af2c665Acb226781",
+            "class": "4xx",
+            "id": 4,
+            "reason_is_leader_supplied": true,
+            "state": "down",
+            "strikes_after": 2,
+            "why": "the address answered 4xx"
+          }
+        ],
+        "title": "Orders API, address gone"
+      },
+      {
+        "probes": [
+          {
+            "at": "2026-11-23T22:39:31Z",
+            "bond": 2,
+            "by": "0x55071D1603549D356A65DA90af2c665Acb226781",
+            "class": "2xx",
+            "id": 2,
+            "reason_is_leader_supplied": true,
+            "state": "down",
+            "strikes_after": 1,
+            "why": "Page states status is maintenance and service is unavailable."
+          }
+        ],
+        "title": "Orders API, in maintenance"
+      }
+    ],
+    "owed": {
+      "provider": "100000000000000000",
+      "beneficiary": "50000000000000000"
+    },
+    "received": {
+      "provider": "100000000000000000",
+      "beneficiary": "50000000000000000"
+    },
+    "payouts": {
+      "provider": [
+        {
+          "tx": "0x4018c1209c90f7c2699d17c6bf638e884153fe9a73999e76fd2a6ab4744670b6",
+          "value": "50000000000000000",
+          "created_at": "2026-11-23T22:44:19.617199+00:00"
+        },
+        {
+          "tx": "0x40800ac0b9749193b44096987fd8d8236a6f50b9071cc486b88a169f4546911a",
+          "value": "50000000000000000",
+          "created_at": "2026-11-23T22:45:51.448263+00:00"
+        }
+      ],
+      "beneficiary": [
+        {
+          "tx": "0xaaab3a54571219a40ba32cfc1494ef6ed47523832dedc86375617d6b1f8fccbd",
+          "value": "50000000000000000",
+          "created_at": "2026-11-23T22:41:45.561032+00:00"
+        }
+      ]
+    },
+    "held_after": "0",
+    "accounts": {
+      "provider": "0x694112B65f552f38BFafAb9347D4dCEdd86DdDCe",
+      "beneficiary": "0xBf516B16A8F96444E6a7A4778A79973ede5B7286",
+      "stranger": "0x55071D1603549D356A65DA90af2c665Acb226781"
+    }
+  }
+}
